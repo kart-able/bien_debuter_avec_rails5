@@ -1,0 +1,32 @@
+<h2>Comment bien débuter avec Ruby on Rails<br>(version 5)</h2>
+
+<br><p>Ces quelques pages ont pour but de vous faire partager mon humble expérience avec Ruby on Rails.</p>
+<p>La première étape pour entrer dans le vif du sujet après avoir 
+<a href="http://railsinstaller.org/">installé Rails</a> 
+sera de suivre l'excellent <a href="http://french.railstutorial.org/">tutoriel 
+de Michael Hartl</a>. Je peux vous aider à corriger quelques erreurs qui peuvent vous 
+surprendre, car l'auteur de ce livre n'a pas tout anticipé. A moins que vous ne vouliez 
+faire l'expérience comme moi du forum de <a href="https://stackoverflow.com/">stackoverflow</a> 
+où vous trouverez de l'aide auprès d'une large communauté de développeurs.</p>
+
+<h3>Si vous utilisez windows</h3>
+<p>Certains vous décourageront d'utiliser windows avec Rails, mais je peux vous assurer qu'il 
+n'est pas nécessaire de passer à Linux ou à Mac. Suivez ces 
+<%= link_to "quelques conseils", avecwindows_path %>...</p>
+
+<h3>Vos propres pages</h3>
+<p>Une fois que vous en saurez assez, vous voudrez créer vos propres pages. 
+Avec Rails, la démarche sera de travailler sur la structure du site plus 
+que sur le contenu dans un premier temps. 
+Voici un exemple de page que vous souhaiterez obtenir : 
+<%= link_to "exemple", exemple_path %> 
+<br><br>
+Ne soyez pas étonné, ce lien interne a été écrit comme ceci : 
+<span class="underligned">
+&lt;%= link_to "exemple", exemple_path %&gt; 
+</span>
+<br>Rien de compliqué quand on a compris qu'il faut mettre 
+en jeu le routeur, d'où le 'path' (chemin en anglais). Logique ? Sinon, sans 
+doute vous faut-il vous documenter sur le Modèle-vue-contrôleur...</p>
+
+ 

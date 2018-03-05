@@ -1,0 +1,59 @@
+<h1>StaticPages#exemple</h1>
+<p>Find me in app/views/static_pages/exemple.html.erb</p>
+
+<hr>
+
+<p>Vous obtiendrez le résultat ci-dessus si vous avez créé une page 'exemple'. Et 
+si vous y êtes arrivé, c'est que vous aurez suivi toutes les étapes :</p>
+<ul>
+  <li>créé le répertoire de votre site/app avec toute l'architecture nécessaire au fonctionnement 
+  de Rails - heureusement tout se construit d'une seule ligne de commande dans la 
+  <%= link_to "console", exemple_path %> : 
+  <span class="underligned">rails new votre_nouveau_site</span></li>
+  <li>ouvert le fichier votre_nouveau_site/config/database.yml où se trouvent notamment 
+  votre username et votre password pour la connexion à la base de données (à se propos, 
+  préférez vous <%= link_to "sqlite3 ou mysql", bdd_path %> ?)</li>
+  <li>lancé un <span class="underligned">bundle install</span> 
+  (c'est magique toutes ces 'gems' qui se chargent d'un seul click, non ?)</li>
+  <li>lancé le serveur depuis la console avec <span class="underligned">
+  rails server</span> (Rails est livré avec son propre serveur nommé Puma)</li>
+  <li>éventuellement mis en place bootstrap, mais ce n'est pas un prérequis</li>
+</ul>
+
+<p>Si déjà vous avez pu afficher ceci, c'est que vous êtes en bonne voie...
+<%= link_to image_tag("riding_rails_4th_edition_aws.png", alt: "you're on Rails", width: "200px"),
+            'http://localhost:3000' %>
+</p>
+
+<p>Ce qui vous reste à faire :</p>
+
+<ul>
+  <li>générer vos pages d'un coup de <span class="underligned">rails generate controller StaticPages home example</span> 
+  ce qui crée dans ce cas 2 'pages (*)' dans le répertoire /static_pages (créé automatiquement)
+  </li>
+  <li>vous pouvez déjà vous rendre sur la page <%= link_to "http://localhost:3000/static_pages/example", exemple_path %> 
+  ou sur <%= link_to "http://localhost:3000/static_pages/home", root_path %> et c'est 
+  presque fini
+  </li>
+  <li>dans config/routes.rb ajouter la ligne <span class="underligned">root 'static_pages#home'</span> 
+  et supprimer la ligne <span class="underligned">get  'static_pages/home'</span>  <br>ATTENTION, à partir 
+  de ce moment, vous ne pourrez plus utiliser l'url <%= link_to "http://localhost:3000/static_pages/home", root_path %>
+  mais <%= link_to "http://localhost:3000", root_path %>
+  </li>
+</ul>
+<br><br>
+<p>Pour ajouter un minimum de navigation entre les 2 pages, il suffit d'ajouter 
+<span class="underligned">&lt;%= link_to "Exemple", exemple_path %&gt;</span> 
+dans la page 'Home' et <span class="underligned">&lt;%= link_to "Home", root_path %&gt;</span> 
+dans la page exemple. Mais pour aller plus loin, je vous renvoie vers le <a href="http://railstutorial.org/book/">tutoriel de Michael Hartl</a></p>
+<br><br>
+<p>(*) En fait, ce sont plusieurs fichiers qui sont créés, pas directement des 'pages html' : 
+<br>- app/controllers/static_pages_controller.rb
+<br>- app/views/static_pages/home.html.erb
+<br>- app/views/static_pages/example.html.erb
+<br>- app/helpers/static_pages_helper.rb
+<br>- app/assets/javascripts/static_pages.coffee
+<br>- app/assets/stylesheets/static_pages.scss
+<br>- test/controllers/static_pages_controller_test.rb
+</p>
+     

@@ -1,0 +1,67 @@
+<h2>sqlite3 ou mysql ?</h2>
+
+<p>Si vous souhaitez faire au plus simple et ne pas vous soucier de la base de données 
+pour le moment, oubliez ce qui suit.</p>
+
+<hr>
+
+<p>Rails est livré avec sqlite3 qui se définit comme "Small. Fast. Reliable.".  
+Mais Rails supporte également MySQL, PostgreSQL, SQL Server, Oracle®, Sybase, Firebird/InterBase et DB2.</p>
+
+<p>Si comme moi, vous avez Wampserver sur votre machine, votre serveur mysql fera parfaitement 
+l'affaire pour Rails. La seule chose à faire sera de configurer Rails </p>
+<ul>
+  <li>en ajoutant <span class="underligned">gem 'mysql2'</span> à votre Gemfile
+  </li>
+  <li>et avec ces quelques lignes dans le fichier config/database.yml :
+  </li>
+</ul>
+
+<pre>
+default: &default
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
+  host: localhost
+</pre>
+
+<p>Ne changez rien aux lignes suivantes, sauf si vous savez ce que vous faites :</p>
+<pre>
+development:
+  <<: *default
+  database: railstest_development
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: railstest_test
+
+# As with config/secrets.yml, you never want to store sensitive information,
+# like your database password, in your source code. If your source code is
+# ever seen by anyone, they now have access to your database.
+#
+# Instead, provide the password as a unix environment variable when you boot
+# the app. Read http://guides.rubyonrails.org/configuring.html#configuring-a-database
+# for a full rundown on how to provide these environment variables in a
+# production deployment.
+#
+# On Heroku and other platform providers, you may have a full connection URL
+# available as an environment variable. For example:
+#
+#   DATABASE_URL="mysql2://myuser:mypass@localhost/somedatabase"
+#
+# You can use this database configuration with:
+#
+#   production:
+#     url: <%= ENV['DATABASE_URL'] %>
+#
+production:
+  <<: *default
+  database: railstest_production
+  username: railstest
+  password: <%= ENV['RAILSTEST_DATABASE_PASSWORD'] %>
+</pre>

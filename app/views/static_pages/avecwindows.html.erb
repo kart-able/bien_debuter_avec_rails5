@@ -1,0 +1,56 @@
+<h2>Conseils pour les utilisateurs de windows</h2>
+
+<h3>Installez NodeJS</h3>
+
+<p>NodeJS n'est pas requis lors de l'installation de Rails, mais vous en aurez assurément 
+besoin lorsque vous voudrez passer à Bootstrap. Vous n'en voulez pas ? 
+Le livre <a href="http://railstutorial.org/book/">tutoriel de Michael Hartl</a> 
+en fait usage, ne soyez pas surpris à ce stade.</p>
+
+<p>Avant même de passer à Bootstrap, un lien comme celui-ci pourra retourner une erreur : 
+<br>
+<span class="underligned">
+link_to image_tag("rails.png", alt: "Rails logo"),
+        'http://rubyonrails.org/'
+</span>
+
+<br><br>En analysant votre code, vous vous appercevrez que le problème vient de image_tag qui n'est 
+pas reconnu comme une méthode par Rails. En réalité, cette méthode est mise en échec... 
+Plus loin, vous aurez un problème avec stylesheet_link_tag. Même constat !</p>
+
+<p>En suivant à la lettre le tutoriel, vous obtiendrez peut être 
+<span class="underligned">Invalid CSS after "...quire bootstrap": 
+expected "{", was ""</span>
+<br>
+<br>
+Ces "erreurs" disparaîtront dès que vous aurez installé NodeJS et que vous aurez 
+redémarré votre système 2 fois (je ne suis pas le seul à l'avoir expérimenté).</p>
+
+<h3>Quelle console utiliser ?</h3>
+<p>Je vous conseille au moins 2 <%= link_to "consoles", console_path %> dont une pour 
+lancer le serveur. Mais sachez que si vous optez pour une console différente de celle livrée 
+avec Rails, la commande 'rails console' restera figée :</p>
+<p><%= image_tag("bug_console_git.png", alt: "la console git bash passe en mode inspect", 
+width: "400px") %></p>
+<p>LA Solution : revenir à la <%= link_to "'console rails'", console_path %></p>
+
+
+<h3>platform: :mri</h3>
+<p>Vérifiez que l'option :platforms => [:mri, :mingw, :x64_mingw] figure bien dans 
+votre fichier Gemfile à la ligne 
+<br><span class="underligned">
+  gem 'byebug', platform: [:mri, :mingw, :x64_mingw]
+</span>
+<br><br>S'il s'y trouve 
+  gem 'byebug', platform: mri
+cela ne conviendra pas pour windows.</p>
+
+<h3>Autres limitations ?</h3>
+<p>
+Lorsque vous parcourez le 
+<a href="https://stackoverflow.com/questions/164896/limitations-in-running-ruby-rails-on-windows" alt="Limitations in running Ruby/Rails on windows">
+forum de stackoverflow</a>, vous vous rendez compte qu'il y a eu de nombreux soucis au 
+tout début de Rails mais que ceux-ci ont été progressivement résolus. Il en reste certes, 
+mais il n'y a pas lieu de changer de système d'exploitation, tout au moins pour s'initier 
+à Rails.
+</p>
