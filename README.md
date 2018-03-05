@@ -1,5 +1,5 @@
 Il s'agit de quelques modestes pages destinées aux débutants sur Ruby on Rails, à lire sur 
-Heroku :
+Heroku : https://thawing-taiga-23029.herokuapp.com/
 
 Sur GitHub, vous trouverez mes premiers pas avec Rails en suivant le tutoriel de 
 Michael Hartl : 
